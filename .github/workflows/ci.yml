@@ -40,10 +40,14 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      # 6. TypeScript
-      - name: Type check
-        run: pnpm exec tsc --noEmit
+      # 6. Generate Next.js types
+      - name: Generate Next.js types
+        run: pnpm typegen
 
-      # 7. Next.js build
+      # 7. TypeScript
+      - name: Type check
+        run: pnpm type-check
+
+      # 8. Next.js build
       - name: Build
         run: pnpm build
